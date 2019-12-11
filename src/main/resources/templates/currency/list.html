@@ -17,7 +17,7 @@
 <body>
 <div class="container">
     <div th:if="${not #lists.isEmpty(currencies)}">
-        <h2>Product List</h2>
+        <h2>Currency List</h2>
         <table class="table table-striped">
             <tr>
                 <th>Id</th>
@@ -28,7 +28,7 @@
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
-            <tr th:each="product : ${currencies}">
+            <tr th:each="currency : ${currencies}">
                 <td th:text="${currency.id}"></td>
                 <td th:text="${currency.name}"></td>
                 <td th:text="${currency.dollarPrice}"></td>
