@@ -53,7 +53,7 @@
             <form action="#" class="form-horizontal" th:action="@{/currency/show}" th:object="${exchange}" method="post">
                 <h3>Look at the exchange rates:</h3>
 
-                <input type="hidden" th:value="${currency.getId()}" name="user_id" th:field="*{fromCurr}"/>
+                <input type="hidden" th:value="${currency.id}" name="user_id" th:field="*{fromCurr}"/>
 
                 <select th:field="*{toCurr}">
                     <option th:each="c : ${currencies}" th:value="${c.getId()}" th:text="${c.getName()}" ></option>
