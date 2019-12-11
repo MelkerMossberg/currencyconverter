@@ -45,9 +45,9 @@ public class Exchange {
 
     public void setRes(BigDecimal fromPrice, BigDecimal toPrice) {
         System.out.println("HIT");
-        BigDecimal fromDiv = fromPrice.divide(new BigDecimal(amount),3 ,RoundingMode.CEILING);
-        BigDecimal toDivDiv = toPrice.divide(new BigDecimal(amount),3 ,RoundingMode.CEILING);
+        BigDecimal fromDiv = fromPrice.divide(new BigDecimal(amount),4 ,RoundingMode.CEILING);
+        BigDecimal toDivDiv = toPrice.divide(new BigDecimal(amount),4 ,RoundingMode.CEILING);
 
-        res = String.valueOf(fromDiv.subtract(toDivDiv).multiply(fromPrice));
+        res = String.valueOf((fromDiv.subtract(toDivDiv)).multiply(fromPrice));
     }
 }
