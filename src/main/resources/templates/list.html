@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Currency Converters</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+    <link href="../static/css/currency.css"
+          th:href="@{css/currency.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
+<div class="container">
+    <div th:if="${not #lists.isEmpty(currencies)}">
+        <h2>Product List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Image URL</th>
+                <th>List</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr th:each="product : ${currencies}">
+                <td th:text="${currency.id}"></td>
+                <td th:text="${currency.name}"></td>
+                <td th:text="${currency.dollarPrice}"></td>
+                <td><a th:href="${'/currency/show/' + currency.id}">View</a> </td>
+                <td><a th:href="${'/currency/edit/' + currency.id}">Edit</a> </td>
+                <td><a th:href="${'/currency/delete/' + currency.id}">Delete</a> </td>
+            </tr>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <a href="/currency/new">New Product</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
