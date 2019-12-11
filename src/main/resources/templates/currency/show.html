@@ -52,14 +52,6 @@
 
             <form action="" class="form-horizontal" th:action="@{/show}" method="post">
                 <h3>Look at the exchange rates:</h3>
-                <tr th:each="currency : ${currencies}">
-                    <td th:text="${currency.id}"></td>
-                    <td th:text="${currency.name}"></td>
-                    <td th:text="${currency.dollarPrice}"></td>
-                    <td><a th:href="${'/currency/show/' + currency.id}">View</a> </td>
-                    <td><a th:href="${'/currency/edit/' + currency.id}">Edit</a> </td>
-                    <td><a th:href="${'/currency/delete/' + currency.id}">Delete</a> </td>
-                </tr>
                 <select th:each="c : ${currencies}">
                     <option th:value="${c.getName()}">Volvo</option>
                 </select>
