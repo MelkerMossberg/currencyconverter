@@ -77,4 +77,12 @@ public class CurrencyController {
         currencyService.delete(Long.valueOf(id));
         return "redirect:/currency/list";
     }
+
+    @RequestMapping(value = "/show/{id}", method = RequestMethod.POST)
+    public String showExchangeRate(@PathVariable String id, Model model){
+        model.addAttribute("currency", currencyService.getById(Long.valueOf(id)));
+        model.addAttribute("currencies", currencyService.listaAll());
+        model.addAttribute("exchange", 12343);
+        return "currency/show";
+    }
 }
