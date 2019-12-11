@@ -41,13 +41,13 @@ public class CurrencyController {
         return "currency/list";
     }
 
-    @RequestMapping("/currency/show{id}")
+    @RequestMapping("/currency/show/{id}")
     public String getCurrency(@PathVariable String id, Model model){
         model.addAttribute("currency", currencyService.getById(Long.valueOf(id)));
         return "currency/show";
     }
 
-    @RequestMapping("/currency/edit{id}")
+    @RequestMapping("/currency/edit/{id}")
     public String edit(@PathVariable String id, Model model){
         Currency currency = currencyService.getById(Long.valueOf(id));
         CurrencyForm currencyForm = currencyToCurrencyForm.convert(currency);
