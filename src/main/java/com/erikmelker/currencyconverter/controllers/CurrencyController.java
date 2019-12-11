@@ -79,7 +79,7 @@ public class CurrencyController {
     }
 
     @PostMapping("/currency/show")
-    public String exchangeSubmit(@ModelAttribute Exchange exchange, Model model){
+    public String exchangeSubmit(@ModelAttribute("exchange") Exchange exchange, Model model){
         model.addAttribute("exchange", exchange);
         System.out.println("Exchange fromCurr: " + exchange.getFromCurr() + ", toCurr: " + exchange.getToCurr() + ", res: " + exchange.getRes());
         model.addAttribute("currency", currencyService.getById((long) 1));

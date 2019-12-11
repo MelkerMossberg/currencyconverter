@@ -1,39 +1,42 @@
 package com.erikmelker.currencyconverter.domain;
 
-public class Exchange {
-    private long amount;
-    private long fromCurr;
-    private long toCurr;
-    private long res;
+import lombok.Data;
 
-    public long getAmount() {
+@Data
+public class Exchange {
+    private String amount;
+    private String fromCurr;
+    private String toCurr;
+    private String res;
+
+    public String getAmount() {
         return amount;
     }
 
-    public void setAmount(long amount) {
+    public void setAmount(String amount) {
         this.amount = amount;
     }
 
-    public long getFromCurr() {
+    public String getFromCurr() {
         return fromCurr;
     }
 
-    public void setFromCurr(long fromCurr) {
+    public void setFromCurr(String fromCurr) {
         this.fromCurr = fromCurr;
     }
 
-    public long getToCurr() {
+    public String getToCurr() {
         return fromCurr;
     }
 
-    public void setToCurr(long toCurr) {
+    public void setToCurr(String toCurr) {
         this.toCurr = toCurr;
     }
-    public long getRes() {
-        return amount*2;
+    public int getRes() {
+        return Integer.valueOf(amount)*2;
     }
 
-    public void setRes(long toCurr) {
+    public void setRes(String toCurr) {
         this.toCurr = toCurr;
     }
 }
