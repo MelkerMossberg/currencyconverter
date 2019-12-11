@@ -3,14 +3,13 @@ package com.erikmelker.currencyconverter.controllers;
 import com.erikmelker.currencyconverter.commands.CurrencyForm;
 import com.erikmelker.currencyconverter.converters.CurrencyToCurrencyForm;
 import com.erikmelker.currencyconverter.domain.Currency;
+import com.erikmelker.currencyconverter.domain.Exchange;
 import com.erikmelker.currencyconverter.services.CurrencyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -78,12 +77,10 @@ public class CurrencyController {
         return "redirect:/currency/list";
     }
 
-    @RequestMapping(value = "/show", method = RequestMethod.POST)
-    public String showExchangeRate(@PathVariable String id, Model model){
-        model.addAttribute("currency", currencyService.getById(Long.valueOf(id)));
-        model.addAttribute("currencies", currencyService.listaAll());
-        model.addAttribute("exchange", 12343);
-        System.out.println("POST GREJJER HAR GJORTS");
-        return "currency/show";
+    @PostMapping("/show")
+    public String exchangeSubmit(@ModelAttribute Exchange exchange, Model model){
+        System.out.println("kom fram");
+        model.addAttribute("exchange", exchange);
+        return "currency/show/"+exchange.getFromCurr();
     }
 }
