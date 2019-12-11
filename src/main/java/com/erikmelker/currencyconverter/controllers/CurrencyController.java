@@ -83,6 +83,7 @@ public class CurrencyController {
         model.addAttribute("currency", currencyService.getById(Long.valueOf(id)));
         model.addAttribute("currencies", currencyService.listaAll());
         model.addAttribute("exchange", 12343);
+        System.out.println("POST GREJJER HAR GJORTS");
         return "currency/show";
     }
 }
