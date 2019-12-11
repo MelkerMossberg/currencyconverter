@@ -80,8 +80,8 @@ public class CurrencyController {
 
     @PostMapping("/currency/show")
     public String exchangeSubmit(@ModelAttribute Exchange exchange, Model model){
-        System.out.println("kom fram");
         model.addAttribute("exchange", exchange);
+        System.out.println("Exchange fromCurr: " + exchange.getFromCurr() + ", toCurr: " + exchange.getToCurr() + ", res: " + exchange.getRes());
         model.addAttribute("currency", currencyService.getById((long) 1));
         model.addAttribute("currencies", currencyService.listaAll());
         return "currency/show";
