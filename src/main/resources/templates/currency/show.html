@@ -52,22 +52,27 @@
 
             <form action="" class="form-horizontal" th:action="@{/currency/show}" th:object="${exchange}" method="post">
                 <h3>Look at the exchange rates:</h3>
-                <input type="hidden" th:value="${currency.getId()}" name="user_id" />
-                <select>
-                    <option th:each="c : ${currencies}" th:value="${c.getId()}" th:text="${c.getName()}"></option>
+
+                <input type="hidden" th:value="${currency.getId()}" name="user_id" th:field="*{fromCurr}"/>
+
+                <select th:field="*{toCurr}">
+                    <option th:each="c : ${currencies}" th:value="${c.getId()}" th:text="${c.getName()}" ></option>
                 </select>
+
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Amount</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control"/></span>
+                        <input type="text" class="form-control" th:field="*{amount}"/></span>
                     </div>
                 </div>
-                <div class="form-group" th:if="${ exchange != null}">
-                    <label class="col-sm-2 control-label">Exchange:</label>
+
+                <div class="form-group" th:if="${ exchange.getRes() != null}">
+                    <label class="col-sm-2 control-label">Result:</label>
                     <div class="col-sm-10">
                         <p class="form-control-static" th:text="exchange"></p>
                     </div>
                 </div>
+
                 <div class="row">
                     <button type="submit" class="btn btn-default">Calculate</button>
                 </div>

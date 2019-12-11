@@ -81,6 +81,8 @@ public class CurrencyController {
     public String exchangeSubmit(@ModelAttribute Exchange exchange, Model model){
         System.out.println("kom fram");
         model.addAttribute("exchange", exchange);
+        model.addAttribute("currency", currencyService.getById(exchange.getFromCurr()));
+        model.addAttribute("currencies", currencyService.listaAll());
         return "currency/show";
     }
 }

@@ -1,17 +1,17 @@
 package com.erikmelker.currencyconverter.domain;
 
 public class Exchange {
-    private long id;
+    private long amount;
     private long fromCurr;
     private long toCurr;
     private long res;
 
-    public long getId() {
-        return id;
+    public long getAmount() {
+        return amount;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setAmount(long amount) {
+        this.amount = amount;
     }
 
     public long getFromCurr() {
@@ -27,6 +27,13 @@ public class Exchange {
     }
 
     public void setToCurr(long toCurr) {
+        this.toCurr = toCurr;
+    }
+    public long getRes() {
+        return amount*2;
+    }
+
+    public void setRes(long toCurr) {
         this.toCurr = toCurr;
     }
 }
