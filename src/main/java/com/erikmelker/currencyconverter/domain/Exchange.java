@@ -32,8 +32,8 @@ public class Exchange {
     public void setToCurr(String toCurr) {
         this.toCurr = toCurr;
     }
-    public int getRes() {
-        return 1234;
+    public String getRes() {
+        return amount;
     }
 
     public void setRes(String toCurr) {
