@@ -1,7 +1,6 @@
 package com.erikmelker.currencyconverter.domain;
 
 import lombok.Data;
-import sun.lwawt.macosx.CSystemTray;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
