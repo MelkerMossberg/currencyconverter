@@ -3,6 +3,7 @@ package com.erikmelker.currencyconverter.domain;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 @Data
 public class Exchange {
@@ -44,9 +45,9 @@ public class Exchange {
 
     public void setRes(BigDecimal fromPrice, BigDecimal toPrice) {
         long amountNum = Long.parseLong(amount);
-        long from = Long.parseLong(String.valueOf(fromPrice));
-        long to = Long.parseLong(String.valueOf(toPrice));
-        double resul = (double) ((double)from/amountNum - (double)to/amountNum)*to;
-        res = String.valueOf(resul);
+        long from = Long.parseLong(fromPrice.toPlainString());
+        long to = Long.parseLong(toPrice.toPlainString());
+        BigDecimal fromDiv = fromPrice.divide(new BigDecimal(amount),3 ,RoundingMode.CEILING);
+        res = String.valueOf(fromDiv);
     }
 }
