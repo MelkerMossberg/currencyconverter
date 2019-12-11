@@ -44,7 +44,7 @@ public class CurrencyController {
     @RequestMapping("/currency/show/{id}")
     public String getCurrency(@PathVariable String id, Model model){
         model.addAttribute("currency", currencyService.getById(Long.valueOf(id)));
-        return "currency/show";
+        return "currency/show" + id;
     }
 
     @RequestMapping("/currency/edit/{id}")
