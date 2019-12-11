@@ -44,10 +44,13 @@ public class Exchange {
     }
 
     public void setRes(BigDecimal fromPrice, BigDecimal toPrice) {
+        System.out.println("HIT");
         long amountNum = Long.parseLong(amount);
         long from = Long.parseLong(fromPrice.toPlainString());
         long to = Long.parseLong(toPrice.toPlainString());
         BigDecimal fromDiv = fromPrice.divide(new BigDecimal(amount),3 ,RoundingMode.CEILING);
-        res = String.valueOf(fromDiv);
+        BigDecimal toDivDiv = toPrice.divide(new BigDecimal(amount),3 ,RoundingMode.CEILING);
+
+        res = String.valueOf(fromDiv.subtract(toDivDiv).multiply(fromPrice));
     }
 }
