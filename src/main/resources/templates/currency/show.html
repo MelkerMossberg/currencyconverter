@@ -53,7 +53,7 @@
             <form action="" class="form-horizontal" th:action="@{/show}" method="post">
                 <h3>Look at the exchange rates:</h3>
                 <select th:each="c : ${currencies}">
-                    <option th:value="${c.getName()}">Volvo</option>
+                    <option th:value="${c.getId()}" th:text="${c.getName()}"></option>
                 </select>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Amount</label>
