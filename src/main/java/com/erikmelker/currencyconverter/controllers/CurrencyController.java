@@ -77,7 +77,7 @@ public class CurrencyController {
         return "redirect:/currency/list";
     }
 
-    @PostMapping("/show")
+    @PostMapping("currency/show")
     public String exchangeSubmit(@ModelAttribute Exchange exchange, Model model){
         System.out.println("kom fram");
         model.addAttribute("exchange", exchange);
