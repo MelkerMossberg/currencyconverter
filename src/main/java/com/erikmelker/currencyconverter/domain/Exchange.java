@@ -48,7 +48,7 @@ public class Exchange {
         BigDecimal fromDiv = fromPrice.divide(new BigDecimal(amount),4 ,RoundingMode.CEILING);
         BigDecimal toDivDiv = toPrice.divide(new BigDecimal(amount),4 ,RoundingMode.CEILING);
 
-        res = String.valueOf((fromDiv.subtract(toDivDiv)).multiply(fromPrice));
+        this.res = String.valueOf((fromDiv.subtract(toDivDiv)).multiply(fromPrice));
         System.out.println("Res is actually: " + res);
     }
 }

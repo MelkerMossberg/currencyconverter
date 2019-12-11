@@ -84,6 +84,7 @@ public class CurrencyController {
         Currency fromCurr = currencyService.getById(Long.valueOf(exchange.getFromCurr()));
         Currency toCurr = currencyService.getById(Long.valueOf(exchange.getToCurr()));
         exchange.setRes(fromCurr.getDollarPrice(), toCurr.getDollarPrice());
+        System.out.println("testing in echangeSubmit: "+exchange.getRes());
         model.addAttribute("currency", fromCurr);
         model.addAttribute("currencies", currencyService.listaAll());
         model.addAttribute("exchange", exchange);
