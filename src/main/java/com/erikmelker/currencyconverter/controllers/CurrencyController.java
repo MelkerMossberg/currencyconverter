@@ -78,7 +78,7 @@ public class CurrencyController {
         return "redirect:/currency/list";
     }
 
-    @RequestMapping(value = "/show/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/show", method = RequestMethod.POST)
     public String showExchangeRate(@PathVariable String id, Model model){
         model.addAttribute("currency", currencyService.getById(Long.valueOf(id)));
         model.addAttribute("currencies", currencyService.listaAll());
