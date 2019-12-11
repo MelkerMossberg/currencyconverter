@@ -1,6 +1,7 @@
 package com.erikmelker.currencyconverter.domain;
 
 import lombok.Data;
+import sun.lwawt.macosx.CSystemTray;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -49,5 +50,6 @@ public class Exchange {
         BigDecimal toDivDiv = toPrice.divide(new BigDecimal(amount),4 ,RoundingMode.CEILING);
 
         res = String.valueOf((fromDiv.subtract(toDivDiv)).multiply(fromPrice));
+        System.out.println("Res is actually: " + res);
     }
 }
