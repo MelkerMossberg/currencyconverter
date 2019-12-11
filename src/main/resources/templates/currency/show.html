@@ -50,7 +50,7 @@
                 </div>
             </form >
 
-            <form action="#" class="form-horizontal" th:action="@{/currency/show}" th:object="${exchange}" method="post">
+            <form action="#" class="form-horizontal" th:action="@{/currency/show}" th:object="${exchange}" method="post" style="display: inline-block">
                 <h3>Look at the exchange rates:</h3>
 
                 <input type="hidden" th:value="${currency.id}" th:attr="name='fromCurr'"/>
@@ -68,8 +68,8 @@
 
                 <div class="form-group">
                     <div class="col-sm-10" style="display: inline-block">
-                        <p style="display: inline-block">Result: </p>
-                        <p style="display: inline-block" class="form-control-static"
+                        <p>Result: </p>
+                        <p class="form-control-static"
                            th:text="${exchange.res != null} ? ${exchange.res} : 'null value!'">
                         </p>
                     </div>

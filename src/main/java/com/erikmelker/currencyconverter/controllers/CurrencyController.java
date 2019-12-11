@@ -82,7 +82,10 @@ public class CurrencyController {
     public String exchangeSubmit(@ModelAttribute("exchange") Exchange exchange, Model model){
         model.addAttribute("exchange", exchange);
         System.out.println("Exchange fromCurr: " + exchange.getFromCurr() + ", toCurr: " + exchange.getToCurr() + ", res: " + exchange.getRes());
-        model.addAttribute("currency", currencyService.getById(Long.valueOf(exchange.getFromCurr())));
+        Currency fromCurr = currencyService.getById(Long.valueOf(exchange.getFromCurr()));
+        Currency toCurr = currencyService.getById(Long.valueOf(exchange.getToCurr()));
+        exchange.setRes(fromCurr.getDollarPrice(), toCurr.getDollarPrice());
+        model.addAttribute("currency", fromCurr);
         model.addAttribute("currencies", currencyService.listaAll());
         return "currency/show";
     }

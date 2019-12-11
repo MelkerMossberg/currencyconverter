@@ -2,6 +2,8 @@ package com.erikmelker.currencyconverter.domain;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Data
 public class Exchange {
     private String amount;
@@ -38,5 +40,10 @@ public class Exchange {
 
     public void setRes(String toCurr) {
         this.toCurr = toCurr;
+    }
+
+    public void setRes(BigDecimal fromPrice, BigDecimal toPrice) {
+        BigDecimal amountNum = BigDecimal.valueOf(Long.parseLong(amount));
+        res = String.valueOf(((amountNum.divide(fromPrice)).add(amountNum.divide(toPrice))).multiply(fromPrice));
     }
 }
