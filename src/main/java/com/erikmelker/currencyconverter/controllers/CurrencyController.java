@@ -70,7 +70,7 @@ public class CurrencyController {
         }
         System.out.println("HAS NO ERRORS!");
         Currency savedCurrency = currencyService.saveOrUpdateCurrencyForm(currencyForm);
-        return "redirect:/currency/show" + savedCurrency.getId();
+        return "redirect:/currency/show/" + savedCurrency.getId();
     }
 
     @RequestMapping("/currency/delete/{id}")
