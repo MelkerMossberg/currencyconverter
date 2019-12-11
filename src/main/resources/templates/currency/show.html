@@ -66,10 +66,10 @@
                     </div>
                 </div>
 
-                <div class="form-group" th:if="${ exchange.getRes() != null}">
+                <div class="form-group">
                     <label class="col-sm-2 control-label">Result:</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="exchange"></p>
+                        <p class="form-control-static" th:text="${exchange.res != null} ? ${exchange.res} : 'null value!'"></p>
                     </div>
                 </div>
 
