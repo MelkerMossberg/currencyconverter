@@ -11,15 +11,15 @@
     <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
             th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
 
-    <link href="../static/css/currency.css"
-          th:href="@{css/currency.css}" rel="stylesheet" media="screen"/>
+    <link href="../../static/css/currency.css"
+          th:href="@{../../static/css/currency.css}" rel="stylesheet" media="screen"/>
 </head>
 <body>
 <div class="container">
 
     <h2>Product Details</h2>
     <div>
-        <form class="form-horizontal" th:object="${currencyForm}" th:action="@{/currency}" method="post">
+        <form class="form-horizontal" th:object="${currencyForm}" th:action="@{/templates/currency}" method="post">
 
             <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
                 <p th:text="#{form.hasErrors}">Error Message</p>
