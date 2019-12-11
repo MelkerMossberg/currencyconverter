@@ -26,7 +26,7 @@ public class Exchange {
     }
 
     public String getToCurr() {
-        return fromCurr;
+        return toCurr;
     }
 
     public void setToCurr(String toCurr) {
