@@ -86,15 +86,20 @@ public class CurrencyController {
         System.out.println("Exchange fromCurr: " + exchange.getFromCurr() + ", toCurr: " + exchange.getToCurr() + ", res: " + exchange.getRes());
         Currency fromCurr = currencyService.getById(Long.valueOf(exchange.getFromCurr()));
         Currency toCurr = currencyService.getById(Long.valueOf(exchange.getToCurr()));
-        BigDecimal fromDiv = fromCurr.getDollarPrice().divide(new BigDecimal(exchange.getAmount()),4 , RoundingMode.CEILING);
-        BigDecimal toDivDiv = toCurr.getDollarPrice().divide(new BigDecimal(exchange.getAmount()),4 ,RoundingMode.CEILING);
-        String res = String.valueOf((fromDiv.subtract(toDivDiv)).multiply(fromCurr.getDollarPrice()));
 
         System.out.println("testing in echangeSubmit: "+exchange.getRes());
         model.addAttribute("currency", fromCurr);
         model.addAttribute("currencies", currencyService.listaAll());
         model.addAttribute("exchange", exchange);
-        model.addAttribute("exchangeResult", res);
+        model.addAttribute("exchangeResult", calculateExchange(fromCurr,toCurr, exchange));
         return "currency/show";
     }
+
+    private String calculateExchange(Currency fromCurr, Currency toCurr, Exchange exchange) {
+        BigDecimal fromDiv = fromCurr.getDollarPrice().divide(new BigDecimal(exchange.getAmount()),4 , RoundingMode.CEILING);
+        BigDecimal toDivDiv = toCurr.getDollarPrice().divide(new BigDecimal(exchange.getAmount()),4 ,RoundingMode.CEILING);
+        return String.valueOf((fromDiv.subtract(toDivDiv)).multiply(fromCurr.getDollarPrice()));
+    }
+
+
 }
