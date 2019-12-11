@@ -33,7 +33,7 @@ public class Exchange {
         this.toCurr = toCurr;
     }
     public int getRes() {
-        return Integer.valueOf(amount)*2;
+        return 1234;
     }
 
     public void setRes(String toCurr) {
