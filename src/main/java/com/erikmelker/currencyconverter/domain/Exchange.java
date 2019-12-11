@@ -43,7 +43,10 @@ public class Exchange {
     }
 
     public void setRes(BigDecimal fromPrice, BigDecimal toPrice) {
-        BigDecimal amountNum = BigDecimal.valueOf(Long.parseLong(amount));
-        res = String.valueOf(((amountNum.divide(fromPrice)).add(amountNum.divide(toPrice))).multiply(fromPrice));
+        long amountNum = Long.parseLong(amount);
+        long from = Long.parseLong(String.valueOf(fromPrice));
+        long to = Long.parseLong(String.valueOf(toPrice));
+        double resul = (double) ((double)from/amountNum - (double)to/amountNum)*to;
+        res = String.valueOf(resul);
     }
 }
