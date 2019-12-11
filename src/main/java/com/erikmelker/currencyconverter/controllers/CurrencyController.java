@@ -65,10 +65,8 @@ public class CurrencyController {
     @RequestMapping(value = "/currency", method = RequestMethod.POST)
     public String saveOrUpdateCurrency(@Valid CurrencyForm currencyForm, BindingResult bindingResult){
         if (bindingResult.hasErrors()){
-            System.out.println("HAS ERRORS!");
             return "currency/currencyform";
         }
-        System.out.println("HAS NO ERRORS!");
         Currency savedCurrency = currencyService.saveOrUpdateCurrencyForm(currencyForm);
         return "redirect:/currency/show/" + savedCurrency.getId();
     }
