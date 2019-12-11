@@ -44,6 +44,7 @@ public class CurrencyController {
     public String getCurrency(@PathVariable String id, Model model){
         model.addAttribute("currency", currencyService.getById(Long.valueOf(id)));
         model.addAttribute("currencies", currencyService.listaAll());
+        model.addAttribute("exchange", null);
         return "currency/show";
     }
 
