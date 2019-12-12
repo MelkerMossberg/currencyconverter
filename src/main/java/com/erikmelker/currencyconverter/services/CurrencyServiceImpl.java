@@ -5,10 +5,7 @@ import com.erikmelker.currencyconverter.converters.CurrencyFormToCurrency;
 import com.erikmelker.currencyconverter.domain.Currency;
 import com.erikmelker.currencyconverter.repositories.CurrencyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;

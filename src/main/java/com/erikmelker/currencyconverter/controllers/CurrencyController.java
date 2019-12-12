@@ -86,19 +86,26 @@ public class CurrencyController {
         System.out.println("Exchange fromCurr: " + exchange.getFromCurr() + ", toCurr: " + exchange.getToCurr() + ", res: " + exchange.getRes());
         Currency fromCurr = currencyService.getById(Long.valueOf(exchange.getFromCurr()));
         Currency toCurr = currencyService.getById(Long.valueOf(exchange.getToCurr()));
-
-        System.out.println("testing in echangeSubmit: "+exchange.getRes());
+        String res = calculateExchange(fromCurr,toCurr, exchange);
+        System.out.println("testing in echangeSubmit: "+res);
         model.addAttribute("currency", fromCurr);
         model.addAttribute("currencies", currencyService.listaAll());
         model.addAttribute("exchange", exchange);
-        model.addAttribute("exchangeResult", calculateExchange(fromCurr,toCurr, exchange));
+        model.addAttribute("exchangeResult", res);
         return "currency/show";
     }
 
     private String calculateExchange(Currency fromCurr, Currency toCurr, Exchange exchange) {
-        BigDecimal fromDiv = fromCurr.getDollarPrice().divide(new BigDecimal(exchange.getAmount()),4 , RoundingMode.CEILING);
-        BigDecimal toDivDiv = toCurr.getDollarPrice().divide(new BigDecimal(exchange.getAmount()),4 ,RoundingMode.CEILING);
-        return String.valueOf((fromDiv.subtract(toDivDiv)).multiply(fromCurr.getDollarPrice()));
+
+        // Hur många SEK (from) kommer det kosta att köpa 10 DKK (to)
+        // x = 10*(1/8)
+        // res = amount* (1/DKK$)*SEK$
+        BigDecimal DKK = toCurr.getDollarPrice();
+        BigDecimal SEK = fromCurr.getDollarPrice();
+        BigDecimal x = (new BigDecimal(1).divide(DKK,4 , RoundingMode.CEILING)).multiply(new BigDecimal(exchange.getAmount()));
+        BigDecimal res = x.multiply(SEK);
+
+        return String.valueOf(res);
     }
 
 

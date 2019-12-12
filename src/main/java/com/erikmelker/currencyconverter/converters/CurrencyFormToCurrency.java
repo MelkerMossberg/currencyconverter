@@ -6,10 +6,7 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 import org.thymeleaf.util.StringUtils;
 
-import javax.transaction.Transactional;
-
 @Component
-@Transactional
 public class CurrencyFormToCurrency implements Converter<CurrencyForm, Currency> {
 
     @Override

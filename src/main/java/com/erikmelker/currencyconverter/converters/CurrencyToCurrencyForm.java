@@ -2,7 +2,6 @@ package com.erikmelker.currencyconverter.converters;
 
 import com.erikmelker.currencyconverter.commands.CurrencyForm;
 import com.erikmelker.currencyconverter.domain.Currency;
-import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 @Component

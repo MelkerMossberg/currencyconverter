@@ -1,6 +1,5 @@
 package com.erikmelker.currencyconverter.services;
 
-
 import com.erikmelker.currencyconverter.commands.CurrencyForm;
 import com.erikmelker.currencyconverter.domain.Currency;
 
